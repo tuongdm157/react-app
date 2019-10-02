@@ -13,13 +13,14 @@ class App extends Component {
 
 
   render() {
-    return (
-      <div className="App">
-        {
-          this.toDoItem.map((item, index) => <ToDoItems key={index} title={item}></ToDoItems>)
-        }
-      </div>
-    );
+      return (  
+        <div className="App">
+          {
+            this.toDoItem.length > 0 && this.toDoItem.map((item, index) => <ToDoItems key={index} title={item}></ToDoItems>)
+          }
+          {this.toDoItem.length === 0 && 'Nothing....'}
+        </div>
+      );
   }
 }
 
