@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
-import ToDoItems from './components/ToDoItems'
+import ToDoItems from './components/ToDoItems';
+import Counter from './components/Counter';
+
 import TrafficLight from './componentsState/TrafficLight';
-import Accordion from './componentChild/Accordion'
+import Accordion from './componentChild/Accordion';
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.state = {
+      showCounter: true
+    }
+    // this.inputElement = React.createRef();
+
     // this.state = {
     //   toDoItem: [
     //     { title: "Go to market", isComplete: true },
@@ -14,6 +21,10 @@ class App extends Component {
     //   ]
     // }
   }
+
+  // componentDidMount(){
+  //   this.inputElement.current.focus();
+  // }
 
   // onItemClick(item) {
   //   return (event) => {
@@ -30,14 +41,22 @@ class App extends Component {
   //   }
   // }
 
+  removeCounter = () =>{
+    this.setState({
+      showCounter: false
+    })
+  }
 
   render() {
     // const { toDoItem } = this.state
     return (
       <div className="App">
-        <Accordion heading="Heading" >
+        <button onClick={this.removeCounter}>RemoveCounter</button>
+        {this.state.showCounter && <Counter></Counter>}
+        {/* <input type="text" ref={this.inputElement}></input> */}
+        {/* <Accordion heading="Heading" >
           Demo ne
-        </Accordion>
+        </Accordion> */}
         {/* <TrafficLight/> */}
         {/* {
           toDoItem.length > 0 && toDoItem.map((item, index) => <ToDoItems
@@ -50,6 +69,18 @@ class App extends Component {
 
       </div>
     );
+  }
+
+  componentDidMount(){
+
+  }
+
+  componentDidUpdate(){
+
+  }
+
+  componentWillUnmount(){
+
   }
 }
 
