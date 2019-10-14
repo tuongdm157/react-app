@@ -21,12 +21,25 @@ class Counter extends Component {
         })
     }
 
+    componentDidMount(){
+        this.timerId = setInterval(()=>{
+            this.setState({
+                count: this.state.count + 1
+            });
+        },1000)
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.timerId);
+    }
+
     render() {
         return (
             <div className="Counter">
-                <button onClick={this.decrease}>-</button>
+                {this.props.render(this.state.count)}
+                {/* <button onClick={this.decrease}>-</button>
                 <span>{this.state.count}</span>
-                <button onClick={this.increase}>+</button>
+                <button onClick={this.increase}>+</button> */}
             </div>
         );
     }

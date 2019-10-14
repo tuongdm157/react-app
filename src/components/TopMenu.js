@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -32,10 +33,14 @@ export default class TopMenu extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">Components</NavLink>
+                <NavLink>
+                  <Link to='/home'>Home</Link>
+                </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                <NavLink>
+                  <Link to='/products/'>Product</Link>
+                </NavLink>
               </NavItem>
             </Nav>
           </Collapse>

@@ -1,42 +1,34 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+ import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import TopMenu from "./components/TopMenu";
-function Home() {
-  return <h2>Home</h2>;
-}
+import Products from "./components/pages/Products";
 
-function About() {
-  return <h2>Product</h2>;
-}
+
+const Home =() => <h2>Home</h2>;
 
 export default function App() {
   return (
     <Router>
-      <div>
+      <div className = "App">
         <TopMenu/>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">Product</Link>
-            </li>
-          </ul>
-        </nav>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+          <Route path="/products/" component={Products}/>
+          <Route path="/" component = {Home}/>
       </div>
     </Router>
   );
 }
+
+// import List from "./components/List";
+// import Counter from "./components/Counter";
+
+
+// const data = ['A', 'B', 'C'];
+
+// export default function App(){
+//   return <div className='App'>
+//     <List data = {data} 
+//       render={(item)=><div>{item}</div>}/>
+//     <Counter render={value=><div>{value}</div>}/>
+//   </div>
+// }
