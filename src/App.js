@@ -1,21 +1,25 @@
- import React from "react";
+import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import TopMenu from "./components/TopMenu";
 import Products from "./components/pages/Products";
 
+import { CartProvide } from "./components/context/Cart";
 
-const Home =() => <h2>Home</h2>;
+
+const Home = () => <h2>Home</h2>;
 
 export default function App() {
   return (
-    <Router>
-      <div className = "App">
-        <TopMenu/>
-          <Route path="/products/" component={Products}/>
-          <Route path="/" component = {Home}/>
-      </div>
-    </Router>
+    <CartProvide>
+      <Router>
+        <div className="App">
+          <TopMenu />
+          <Route path="/products/" component={Products} />
+          <Route path="/" component={Home} />
+        </div>
+      </Router>
+    </CartProvide>
   );
 }
 

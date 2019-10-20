@@ -10,6 +10,7 @@ import {
   NavLink,
 } from 'reactstrap';
 
+import { CartContext } from './context/Cart'
 export default class TopMenu extends React.Component {
   constructor(props) {
     super(props);
@@ -40,6 +41,14 @@ export default class TopMenu extends React.Component {
               <NavItem>
                 <NavLink>
                   <Link to='/products/'>Product</Link>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink>
+                  <CartContext.Consumer>
+                    {({ cartItems }) => (
+                      <Link to='/cart/'>Cart {cartItems.length}</Link>)}
+                  </CartContext.Consumer>
                 </NavLink>
               </NavItem>
             </Nav>
