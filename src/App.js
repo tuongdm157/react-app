@@ -5,7 +5,7 @@ import TopMenu from "./components/TopMenu";
 import Products from "./components/pages/Products";
 
 import { CartProvide } from "./components/context/Cart";
-
+import Counter2 from './components/Counter2';
 
 const Home = () => <h2>Home</h2>;
 
@@ -34,5 +34,6 @@ export default function App() {
 //     <List data = {data} 
 //       render={(item)=><div>{item}</div>}/>
 //     <Counter render={value=><div>{value}</div>}/>
+//          <Counter2/>
 //   </div>
 // }
