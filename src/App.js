@@ -6,20 +6,22 @@ import Products from "./components/pages/Products";
 
 import { CartProvide } from "./components/context/Cart";
 import Counter2 from './components/Counter2';
+import Game from './componentTutorial/Game'
 
 const Home = () => <h2>Home</h2>;
 
 export default function App() {
   return (
-    <CartProvide>
-      <Router>
-        <div className="App">
-          <TopMenu />
-          <Route path="/products/" component={Products} />
-          <Route path="/" component={Home} />
-        </div>
-      </Router>
-    </CartProvide>
+    <Game/>
+    // <CartProvide>
+    //   <Router>
+    //     <div className="App">
+    //       <TopMenu />
+    //       <Route path="/products/" component={Products} />
+    //       <Route path="/" component={Home} />
+    //     </div>
+    //   </Router>
+    // </CartProvide>
   );
 }
 
